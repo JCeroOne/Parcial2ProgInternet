@@ -5,7 +5,7 @@ export default async mongoose => {
         await mongoose.connect(process.env.DB_URI);
         logger.log("Database", "Connection established succesfully!");
     } catch(e){
-        logger.error(`An error occurred while connecting to the database!\n-----\n${e}`);
+        logger.error("Database", `An error occurred while connecting to the database. See below for details.\n-----\n${e}`);
         process.exit(1);
     }
 }

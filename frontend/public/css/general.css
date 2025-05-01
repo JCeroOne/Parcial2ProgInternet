@@ -1,0 +1,198 @@
+body {
+    --background-color: #222;
+    --color: white;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+nav.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.navbar-brand {
+    font-weight: 800;
+}
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0.5));
+}
+header .content {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} header .content h1 {
+    color: var(--color);;
+    font-weight: bold;
+    font-size: 100px;
+    text-align: center;
+} header .content p {
+    color: var(--color);;
+    font-size: 28px;
+    text-align: center;
+}
+nav .dropdown-section {
+    text-decoration: underline;
+    text-align: center;
+}
+main section > .section-header {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: none;
+}
+main .info-row {
+    width: 100%;
+    padding: 0 5%;
+    margin: 80px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    --text-width: 75%;
+    --btn-color: rgb(0, 175, 79);
+} main .info-row:nth-child(2n - 1){
+    background-color: #333;
+    box-shadow: 0 0 40px 40px #333;
+}
+main .info-row div {
+    flex: 0 0 var(--text-width);
+    padding: 0 5%;
+    box-sizing: border-box;
+} main .info-row h1 {
+    font-size: 50px;
+    color: var(--color);
+    text-transform: none;
+} main .info-row p {
+    font-size: 24px;
+    color: var(--color);
+    text-align: justify;
+} main .info-row button {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: var(--btn-color);
+    border: 3px solid var(--btn-color);
+    border-radius: 10px;
+    transition: 0.25s;
+} main .info-row button:hover {
+    background-color: transparent;
+    color: var(--btn-color);
+}
+main .info-row img {
+    display: block;
+    flex: 0 0 calc(100% - var(--text-width));
+    overflow: hidden;
+    border-radius: 50%;
+    filter: contrast(1.1);
+    object-fit: cover;
+    aspect-ratio: 1;
+    box-shadow: 0 0 10px 10px var(--btn-color);
+}
+section > .section-introduction {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+}
+.review-list {
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+}
+.review-list > .review {
+    flex: 0 0 calc(100% / 3);
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #444;
+    border: 3px solid #777;
+    border-radius: 10px;
+}
+.review-list > .review > .stars {
+    text-align: center;
+    font-size: 28px;
+}
+.review-list > .review > .stars .awarded {
+    color: #fa0;
+    animation: awarded-shadow linear 3s infinite;
+}
+.review-list > .review > .stars .awarded:nth-child(4){animation-delay: -0.25s;}
+.review-list > .review > .stars .awarded:nth-child(3){animation-delay: -0.50s;}
+.review-list > .review > .stars .awarded:nth-child(2){animation-delay: -0.75s;}
+.review-list > .review > .stars .awarded:nth-child(1){animation-delay: -1.00s;}
+.review-list > .review > .stars .not-awarded {
+    color: rgb(0, 0, 0);
+}
+.review-list > .review > .review-content {
+    font-size: 22px;
+    text-align: justify;
+}
+.review-list > .review > .review-writer {
+    font-size: 24px;
+    text-align: center;
+    font-style: italic;
+}
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+footer p {
+    width: 80%;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+    main .info-row div {
+        flex: 0 0 100%;
+        padding: 40px 5%;
+        box-sizing: border-box;
+    }
+    main .info-row img {
+        flex: 0 0 100%;
+        max-width: 300px;
+    }
+}
+/* REVIEWS */
+@media only screen and (max-width: 1100px) {
+    .review-list {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+@media only screen and (max-width: 800px) {
+    .review-list {
+        grid-template-columns: auto;
+    }
+}
+@keyframes awarded-shadow {
+    0% {
+        text-shadow: 0 0 10px #fa0;
+    }
+    50% {
+        text-shadow: 0 0 20px #ff0;
+    }
+    100% {
+        text-shadow: 0 0 10px #fa0;
+    }
+}

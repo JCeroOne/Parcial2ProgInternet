@@ -1,0 +1,138 @@
+body {
+    --background-color: #222;
+    --color: white;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+nav.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.navbar-brand {
+    font-weight: 800;
+}
+header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0.5));
+}
+header .content {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} header .content h1 {
+    color: var(--color);;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+    text-transform: none;
+}
+form > section {
+    display: flex;
+    flex-wrap: wrap;
+    --message-width: 60%;
+}
+form > section > .user-data {
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 0 0 calc(100% - var(--message-width));
+} form > section > .msg {
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 0 0 var(--message-width);
+}
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+form input {
+    display: block;
+    color: black;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px solid #888;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+form button, form button.button-small-screen {
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+    color: #fff;
+    background-color: rgb(0, 175, 79);
+    border: 3px solid rgb(0, 175, 79);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+form button:hover, form button.button-small-screen:hover {
+    background-color: transparent;
+    color: rgb(0, 175, 79);
+    border: 3px solid rgb(0, 175, 79);
+}
+form button.button-small-screen {
+    display: none;
+}
+form textarea {
+    display: block;
+    color: black;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px solid #888;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    resize: none;
+}
+nav .dropdown-section {
+    text-decoration: underline;
+    text-align: center;
+}
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+footer p {
+    width: 80%;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 800px){
+    header {
+        height: 150vh;
+    }
+    form button.button-small-screen {
+        display: block;
+    } form button.button-large-screen {
+        display: none;
+    }
+    form > section > .msg, form > section > .user-data {
+        flex: 0 0 100%;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCEMS | Inicio</title>
+    <script src="https://kit.fontawesome.com/fa25ae7139.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/contacto.css">
+</head>
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">JCEMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html"><i class="fa-solid fa-house"></i> Inicio
+                        <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-circle-info"></i> Acerca de</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-droplet"></i> Agua</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Todos los modelos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">JCEMS Hydrocast</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-wind"></i> Aire</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Todos los modelos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dropdown-section"><strong>Atmósfera</strong></a>
+                            <a class="dropdown-item" href="#">JCEMS Skew-T log-P</a>
+                            <a class="dropdown-item" href="#">JCEMS Mayab</a>
+                            <a class="dropdown-item" href="#">JCEMS NEMx</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dropdown-section"><strong>Aerodinámica</strong></a>
+                            <a class="dropdown-item" href="#">JCEMS Aerocast</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-fire"></i> Fuego</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Todos los modelos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">JCEMS Firecast</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-seedling"></i> Tierra</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Todos los modelos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">JCEMS Earthcast</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fa-solid fa-envelope"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="overlay"></div>
+        <form class="content">
+            <h1>Contacto</h1>
+            <section>
+                <div class="user-data">
+                    <label for="subject">Asunto</label><input id="subject" type="text" required>
+                    <label for="firstname">Nombre</label><input id="firstname" type="text" required>
+                    <label for="lastname">Apellido</label><input id="lastname" type="text" required>
+                    <label for="email">Correo electrónico</label><input id="email" type="email" placeholder="ejemplo@ejemplo.com" required>
+                    <button class="button-large-screen">Enviar</button>
+                </div><div class="msg">
+                    <label for="message">Mensaje</label><textarea name="message" placeholder="Escriba su mensaje..." required rows="11"></textarea>
+                    <button class="button-small-screen">Enviar</button>
+                </div>
+            </section>
+        </form>
+    </header>
+    <footer>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident non quia, repellat eos totam facere unde ut officiis ad pariatur aliquam vel alias vitae commodi qui eligendi rem necessitatibus deleniti!</p>
+    </footer>
+</body>
+</html>
