@@ -8,5 +8,19 @@ export default (express, app) => {
         }
     }));
 
+    app.get("/planes", (req, res) => res.render("planes", {
+        section: {
+            id: "plans",
+            name: "Planes"
+        }
+    }));
+
+    app.get("/contacto", (req, res) => res.render("contacto", {
+        section: {
+            id: "contact",
+            name: "Contacto"
+        }
+    }));
+
     app.listen(PORT, logger.log("Application", `Listening on port ${PORT}.`));
 }

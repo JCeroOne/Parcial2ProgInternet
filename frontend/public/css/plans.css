@@ -1,0 +1,132 @@
+body {
+    --background-color: #222;
+    --color: white;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+nav.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.navbar-brand {
+    font-weight: 800;
+}
+header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -2;
+}
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(0deg, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0.5));
+    overflow: hidden;
+    z-index: -1;
+}
+header .content {
+    position: static;
+    width: 100%;
+    transform: none;
+    text-align: center;
+} header .content h1 {
+    color: var(--color);;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+    text-transform: none;
+}
+main {
+    padding: 20px 5vw;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+main p {
+    font-size: 20px;
+    text-align: center;
+}
+#comparison-table {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#comparison-table td, #comparison-table th {
+    width: 25%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-transform: none;
+}
+
+#comparison-table tr:nth-child(1) th:nth-child(1), #comparison-table tr:nth-child(2) th:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#comparison-table th:nth-child(1) {
+    background-color: rgba(50, 50, 50, 0.65);
+}
+#comparison-table th[colspan="4"] {
+    background-color: rgba(100, 100, 100, 0.65);
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#comparison-table th {
+    font-size: 24px;
+}
+
+#comparison-table td {
+    font-size: 30px;
+} #comparison-table td span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #ddd;
+    font-weight: normal;
+}
+
+#comparison-table th.name {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+#comparison-table th.price {
+    font-size: 50px;
+} #comparison-table th.price span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+    font-weight: normal;
+}
+
+#comparison-table th:nth-child(2) {
+    background-color: rgba(150, 150, 150, 0.65);
+} #comparison-table td:nth-child(2) {
+    background-color: rgba(150, 150, 150, 0.25);
+}
+
+#comparison-table th:nth-child(3) {
+    background-color: rgba(0, 200, 255, 0.65);
+} #comparison-table td:nth-child(3) {
+    background-color: rgba(0, 200, 255, 0.25);
+}
+
+#comparison-table th:nth-child(4) {
+    background-color: rgba(0, 255, 115, 0.65);
+} #comparison-table td:nth-child(4) {
+    background-color: rgba(0, 255, 115, 0.25);
+}
