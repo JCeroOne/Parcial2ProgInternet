@@ -7,12 +7,16 @@ const schema = new mongoose.Schema({
     rate_limit: {type: Number, require: true},
     usage_limits: {
         air: {
-            skewt_logp: 10// Soundings per day
+            skewt_logp: Number, // Soundings per day
+            storm_detector: Number // Locations
+        },
+        api: {
+            storm_api: Number // Calls per month
         }
     }
 
 });
 
-const User = mongoose.model("User", schema);
+const Plan = mongoose.model("Plan", schema);
 
-export {User}
+export {Plan}
