@@ -52,7 +52,7 @@ async function userPwdChangeHandler(req, res){
 
 async function userDeactivationHandler(req, res){
     const user = await User.findOne({email: req.user.email});
-    let pwdCorrect = await user.authenticate(req.body.currpassword);
+    let pwdCorrect = await user.authenticate(req.body.password);
     
     if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
 
@@ -61,4 +61,22 @@ async function userDeactivationHandler(req, res){
     res.redirect("/sesiones/cerrar");
 }
 
-export {userRegistrationHandler, userNameChangeHandler, userEmailChangeHandler, userPwdChangeHandler, userDeactivationHandler};
+async function userDeletionHandler(req, res){
+    const user = await User.findOne({email: req.user.email});
+    let pwdCorrect = await user.authenticate(req.body.password);
+    
+    if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    let email = req.user.email;
+
+    req.logout(async e => {
+        if(e){
+            logger.error("Users", `An error occurred while logging out a user!\n-----\n${e}`);
+            return res.redirect("/usuarios/ajustes?err=500");
+        }
+        await User.deleteOne({email});
+        res.redirect("/?deleted=1");
+    });
+}
+
+export {userRegistrationHandler, userNameChangeHandler, userEmailChangeHandler, userPwdChangeHandler, userDeactivationHandler, userDeletionHandler};

@@ -1,4 +1,4 @@
-import {userDeactivationHandler, userPwdChangeHandler, userEmailChangeHandler, userNameChangeHandler, userRegistrationHandler} from "../controllers/users.js";
+import {userDeletionHandler, userDeactivationHandler, userPwdChangeHandler, userEmailChangeHandler, userNameChangeHandler, userRegistrationHandler} from "../controllers/users.js";
 import express from "express";
 import { checkAuth, checkNoAuth } from "../util/checkauth.js";
 import {User} from "../models/User.js";
@@ -56,6 +56,8 @@ export default (() => {
     router.post("/actualizar/pwd", checkAuth, userPwdChangeHandler);
 
     router.post("/desactivar", checkAuth, userDeactivationHandler);
+
+    router.post("/eliminar", checkAuth, userDeletionHandler);
 
     return router;
 })();
