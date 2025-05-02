@@ -4,6 +4,7 @@ import { User } from "../models/User.js";
 
 import sessionRouter from "./session.js";
 import userRouter from "./user.js";
+import apiRouter from "../api/api_routes.js";
 
 const PORT = process.env.PORT || 80;
 export default (express, app, passport, Models) => {
@@ -34,6 +35,8 @@ export default (express, app, passport, Models) => {
     app.use("/usuarios", userRouter);
 
     app.use("/sesiones", sessionRouter);
+
+    app.use("/api", apiRouter);
 
     app.listen(PORT, logger.log("Application", `Listening on port ${PORT}.`));
 }
