@@ -37,6 +37,9 @@ nav.navbar {
 } #sidebar a:hover {
     background-color: #181818;
 }
+#sidebar a[href="#"]{
+    color: #f88;
+}
 main {
     padding: 20px;
     box-sizing: border-box;

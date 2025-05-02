@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand" href="#">JCEMS</a>
+        <a class="navbar-brand" href="/">JCEMS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,11 +57,11 @@
                 <ul class="navbar-nav">
                     <% if(!user){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/usuarios/acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
+                            <a class="nav-link active" href="/usuarios/acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
                         </li>    
                     <% } else { %>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i> Mi cuenta</a>
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i> <%= user.name %></a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/usuarios/panel"><i class="fa-solid fa-right-to-bracket"></i> Panel de usuario</a>
                                 <a class="dropdown-item" href="/usuarios/ajustes"><i class="fa-solid fa-gear"></i> Configuración</a>

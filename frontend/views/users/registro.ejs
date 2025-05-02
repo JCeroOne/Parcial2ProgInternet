@@ -1,6 +1,7 @@
 <%- include("../segments/top") %>
 <header>
     <div class="overlay"></div>
+    <a id="back" href="/"><i class="fa-solid fa-backward"></i> Regresar</a>
     <form class="content" action="/usuarios/registro" method="POST">
         <% if(error) { %>
             <p id="login-error"><%= error %></p>    

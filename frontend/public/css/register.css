@@ -13,6 +13,25 @@ nav.navbar {
 .navbar-brand {
     font-weight: 800;
 }
+#back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(200, 0, 0);
+    border: 3px solid rgb(200, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: 0.25s;
+} #back:hover {
+    background-color: transparent;
+    color: rgb(200, 0, 0);
+}
 header {
     position: relative;
     width: 100%;

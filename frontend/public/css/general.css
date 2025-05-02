@@ -13,6 +13,9 @@ nav.navbar {
 .navbar-brand {
     font-weight: 800;
 }
+a[href="#"]{
+    color: #f88;
+}
 header {
     position: relative;
     width: 100%;
