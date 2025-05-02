@@ -3,16 +3,16 @@ import {User} from "../models/User.js";
 async function userRegistrationHandler(req, res) {
             
     let u = await User.findOne({email: req.body.email});
-    if(u) return res.redirect("/registro?err=1");
+    if(u) return res.redirect("/usuarios/registro?err=1");
     
     let user = await User.register({name: req.body.name, email: req.body.email}, req.body.password);
 
     req.login(user, e => {
         if(e){
             logger.log("Users", `An error occurred while trying to register a new user!\n-----\n${e}`);
-            return res.redirect("/registro?err=500");
+            return res.redirect("/usuarios/registro?err=500");
         }
-        res.redirect("/panel");
+        res.redirect("/usuarios/panel");
     })
 
 }
@@ -29,6 +29,11 @@ async function userNameChangeHandler(req, res){
 }
 
 async function userEmailChangeHandler(req, res){
+
+    const foundOther = await User.findOne({email: req.body.email});
+
+    if(foundOther) return res.redirect("/usuarios/ajustes?denegado=2");
+
     const user = await User.findOne({email: req.user.email});
     let pwdCorrect = await user.authenticate(req.body.password);
     
