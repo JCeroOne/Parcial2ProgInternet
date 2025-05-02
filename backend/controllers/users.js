@@ -17,4 +17,48 @@ async function userRegistrationHandler(req, res) {
 
 }
 
-export {userRegistrationHandler};
+async function userNameChangeHandler(req, res){
+    const user = await User.findOne({email: req.user.email});
+    let pwdCorrect = await user.authenticate(req.body.password);
+    
+    if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    await User.updateOne({email: req.user.email}, {$set: {name: req.body.name}});
+
+    res.redirect("/usuarios/ajustes?exito=1");
+}
+
+async function userEmailChangeHandler(req, res){
+    const user = await User.findOne({email: req.user.email});
+    let pwdCorrect = await user.authenticate(req.body.password);
+    
+    if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    await User.updateOne({email: req.user.email}, {$set: {email: req.body.email}});
+
+    res.redirect("/usuarios/acceso?correo=1");
+}
+
+async function userPwdChangeHandler(req, res){
+    const user = await User.findOne({email: req.user.email});
+    let pwdCorrect = await user.authenticate(req.body.currpassword);
+    
+    if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    await user.changePassword(req.body.currpassword, req.body.password);
+
+    res.redirect("/usuarios/ajustes?exito=1");
+}
+
+async function userDeactivationHandler(req, res){
+    const user = await User.findOne({email: req.user.email});
+    let pwdCorrect = await user.authenticate(req.body.currpassword);
+    
+    if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    await User.updateOne({email: req.user.email}, {$set: {account_active: false}});
+
+    res.redirect("/sesiones/cerrar");
+}
+
+export {userRegistrationHandler, userNameChangeHandler, userEmailChangeHandler, userPwdChangeHandler, userDeactivationHandler};

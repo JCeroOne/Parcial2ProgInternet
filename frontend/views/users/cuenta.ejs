@@ -1,0 +1,50 @@
+<%- include("./segments/top") %>
+<%- include("./segments/nav") %>
+<section id="main-container">
+    <%- include("./segments/sidebar") %>
+    <main>
+        <h1>Ajustes de cuenta</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis maxime, voluptatibus ad natus quidem optio voluptatem consequatur rerum earum, delectus recusandae obcaecati vitae dignissimos iste quos dolor cupiditate quasi. Velit.</p>
+        <section id="action-areas">
+            <div>
+                <h2>Cambiar apodo</h2>
+                <form action="/usuarios/actualizar/apodo" method="POST">
+                    <label for="name">Apodo nuevo</label><input id="name" type="text" name="name" required>
+                    <label for="password-name">Ingresa tu contraseña</label><input id="password-name" type="password" name="password" required>
+                    <button>Actualizar apodo</button>
+                </form>
+            </div>
+            <div>
+                <h2>Cambiar correo electrónico</h2>
+                <form action="/usuarios/actualizar/correo" method="POST">
+                    <label for="email">Correo nuevo</label><input id="email" type="email" name="email" required>
+                    <label for="password-email">Ingresa tu contraseña</label><input id="password-email" type="password" name="password" required>
+                    <button>Actualizar correo</button>
+                </form>
+            </div>
+            <div>
+                <h2>Cambiar contraseña</h2>
+                <form action="/usuarios/actualizar/pwd" method="POST">
+                    <label for="currpassword">Contraseña actual</label><input id="curr-password" type="password" name="currpassword" required>
+                    <label for="password-email">Contraseña nueva</label><input id="password" type="password" name="password" required>
+                    <button>Actualizar contraseña</button>
+                </form>
+            </div>
+            <div>
+                <h2>Desactivar o eliminar cuenta</h2>
+                <form action="/usuarios/desactivar" method="POST" id="delete-form">
+                    <p id="disable-desc">Si desactivas tu cuenta, también se desactivarán tus claves de API. Para reactivar tu cuenta, vuelve a iniciar sesión.</p>
+                    <p id="delete-desc">Si eliminas tu cuenta, todos tus datos y claves de API se eliminarán. Esta acción no se puede deshacer.</p>
+                    <label for="password-del">Escribe tu contraseña</label><input type="password" name="password" id="password-del" required>
+                    <div class="btn-2">
+                        <button id="btn-disable">
+                            Desactivar cuenta
+                        </button><button id="btn-delete">
+                            Eliminar cuenta
+                        </button>
+                    </div>
+                </form>
+        </section>
+    </main>
+</section>
+<%- include("./segments/bottom") %>

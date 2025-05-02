@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     
     name: {type: String, require: true},
     email: {type: String, require: true},
+    account_active: {type: Boolean, default: true},
     role: {type: String, require: true}, // "user" or "admin"
     register_date: {type: Date, default: Date.now},
     plan: {type: String, default: "basic", require: true},

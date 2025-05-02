@@ -38,6 +38,8 @@ nav.navbar {
     background-color: #181818;
 }
 main {
+    padding: 20px;
+    box-sizing: border-box;
     flex: 0 0 calc(100% - var(--sidebar-width));
     background-color: #111;
 }

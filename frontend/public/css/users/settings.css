@@ -1,0 +1,85 @@
+main h1, main h2 {
+    color: white;
+    text-transform: none;
+    text-align: center;
+}
+main h1 {
+    font-size: 40px;
+}
+main > p {
+    font-size: 20px;
+}
+#action-areas {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+#action-areas > div {
+    padding: 20px;
+    box-sizing: border-box;
+}
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    display: block;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgba(80, 80, 80, 0.7);
+    border: 3px solid #888;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+form button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    color: #fff;
+    background-color: rgb(0, 155, 0);
+    border: 3px solid rgb(0, 155, 0);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+form button:hover {
+    background-color: transparent;
+    color: rgb(0, 175, 79);
+    border: 3px solid rgb(0, 175, 79);
+}
+.btn-2 {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.btn-2 > button {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    border-radius: 0;
+}
+#btn-disable {
+    background-color: rgb(100, 100, 100);
+    border: 3px solid rgb(100, 100, 100);
+} #btn-disable:hover {
+    color: rgb(184, 184, 184);
+    border: 3px solid rgb(100, 100, 100);
+    background-color: transparent;
+}
+#btn-delete {
+    background-color: rgb(200, 0, 0);
+    border: 3px solid rgb(200, 0, 0);
+} #btn-delete:hover {
+    color: rgb(200, 0, 0);
+    border: 3px solid rgb(200, 0, 0);
+    background-color: transparent;
+}
