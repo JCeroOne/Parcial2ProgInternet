@@ -2,6 +2,7 @@ import logger from "../util/logger.js";
 import { checkAuth, checkNoAuth } from "../util/checkauth.js";
 import { User } from "../models/User.js";
 
+import airRouter from "./products/air.js";
 import sessionRouter from "./session.js";
 import userRouter from "./user.js";
 import apiKeyRouter from "./apikey.js";
@@ -32,6 +33,8 @@ export default (express, app, passport, Models) => {
         },
         user: req.user
     }));
+
+    app.use("/aire", airRouter);
 
     app.use("/usuarios", userRouter);
 
