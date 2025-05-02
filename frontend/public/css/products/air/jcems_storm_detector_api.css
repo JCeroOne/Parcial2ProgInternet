@@ -37,6 +37,10 @@ header > .content a {
     background-color: transparent;
     color: #0a0;
 }
+main {
+    padding: 20px;
+    box-sizing: border-box;
+}
 #endpoints > h2 {
     text-transform: none;
     font-size: 40px;
@@ -46,6 +50,31 @@ header > .content a {
     font-size: 24px;
     text-align: center;
     color: white;
+}
+#endpoints-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 3px solid #888;
+}
+#endpoints-table tr {
+    background-color: #333;
+} #endpoints-table tr:nth-child(2n-1) {
+    background-color: #444;
+}
+#endpoints-table th, #endpoints-table td {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #888;
+    text-align: center;
+    text-transform: none;
+}
+#endpoints-table th {
+    font-size: 20px;
+}
+#endpoints-table td {
+    text-align: justify;
+    font-size: 20px;
 }
 #features img {
     display: block;

@@ -12,6 +12,84 @@
     <section id="endpoints">
         <h2>Endpoints</h2>
         <p>Todos los endpoints requieren de una clave de API para acceder a ellos</p>
+        <table id="endpoints-table">
+            <tr>
+                <th>Endpoint</th>
+                <th>Método</th>
+                <th>Parámetros</th>
+                <th>Respuesta</th>
+                <th>Descripción</th>
+            </tr><tr class="get">
+                <th>/</th>
+                <th>GET</th>
+                <td>
+                    <ul>
+                        <li><strong>api_key:</strong> La clave de API del usuario</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>Object</strong><br/><ul>
+                        <li><strong>api_status:</strong> Descripción del estado de la API</li>
+                    </ul>
+                </td>
+                <td>Indica el estado de la API</td>
+            </tr><tr class="get">
+                <th>/cercanas</th>
+                <th>GET</th>
+                <td>
+                    <ul>
+                        <li><strong>lat:</strong> Latitud</li>
+                        <li><strong>lon:</strong> Longitud</li>
+                        <li><strong>api_key:</strong> La clave de API del usuario</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>Array[Object]</strong><br/><ul>
+                        <li><strong>id:</strong> ID de la tormenta</li>
+                        <li><strong>lat:</strong> Latitud de la tormenta</li>
+                        <li><strong>lon:</strong> Longitud de la tormenta</li>
+                    </ul>
+                </td>
+                <td>Obtiene información de todas las tormentas ubicadas a un radio de 30 km de la ubicación especificada</td>
+            </tr><tr class="get">
+                <th>/tormentas</th>
+                <th>GET</th>
+                <td>
+                    <ul>
+                        <li><strong>api_key:</strong> La clave de API del usuario</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>Array[Object]</strong><br/><ul>
+                        <li><strong>id:</strong> ID de la tormenta</li>
+                        <li><strong>lat:</strong> Latitud de la tormenta</li>
+                        <li><strong>lon:</strong> Longitud de la tormenta</li>
+                    </ul>
+                </td>
+                <td>Obtiene información de todas las tormentas detectadas en un momento dado</td>
+            </tr><tr class="get">
+                <th>/tormentas/{id}</th>
+                <th>GET</th>
+                <td>
+                    <ul>
+                        <li><strong>api_key:</strong> La clave de API del usuario</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>Object</strong><br/><ul>
+                        <li><strong>id:</strong> ID de la tormenta</li>
+                        <li><strong>lat:</strong> Latitud de la tormenta</li>
+                        <li><strong>lon:</strong> Longitud de la tormenta</li>
+                        <li><strong>spd:</strong> Velocidad de desplazamiento</li>
+                        <li><strong>dir:</strong> Dirección de desplazamiento</li>
+                        <li><strong>ctt:</strong> Temperatura de la cima de las nubes</li>
+                        <li><strong>int:</strong> Intensidad estimada</li>
+                        <li><strong>ltr:</strong> Densidad estimada de rayos</li>
+                    </ul>
+                </td>
+                <td>Obtiene información de la tormenta especificada</td>
+            </tr>
+        </table>
     </section>
 </main>
 <%- include("../../segments/bottom") %>
