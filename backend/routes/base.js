@@ -48,6 +48,15 @@ export default (express, app, passport, Models) => {
         })(req.query.err)
     }));
 
+    app.get("/cerrar-sesion", (req, res) => {
+        req.logout(e => {
+            if(e){
+                logger.error("Users", `An error occurred while logging out a user!\n-----\n${e}`);
+            }
+            res.redirect("/");
+        })
+    });
+
     app.post("/acceso", passport.authenticate("local", {failureRedirect: "/acceso?denegado=1"}), (req, res) => res.redirect("/panel"));
 
     app.post("/registro", checkNoAuth, async (req, res) => {
