@@ -4,6 +4,7 @@ import { User } from "../models/User.js";
 
 import sessionRouter from "./session.js";
 import userRouter from "./user.js";
+import apiKeyRouter from "./apikey.js";
 import apiRouter from "../api/api_routes.js";
 
 const PORT = process.env.PORT || 80;
@@ -35,6 +36,8 @@ export default (express, app, passport, Models) => {
     app.use("/usuarios", userRouter);
 
     app.use("/sesiones", sessionRouter);
+
+    app.use("/claves-api", apiKeyRouter);
 
     app.use("/api", apiRouter);
 

@@ -1,3 +1,4 @@
+import { APIKey } from "../models/APIKey.js";
 import {User} from "../models/User.js";
 
 async function userRegistrationHandler(req, res) {
@@ -71,6 +72,8 @@ async function userDeletionHandler(req, res){
     let pwdCorrect = await user.authenticate(req.body.password);
     
     if(!pwdCorrect.user) return res.redirect("/usuarios/ajustes?denegado=1");
+
+    await APIKey.deleteMany({user_id: req.user._id});
 
     let email = req.user.email;
 

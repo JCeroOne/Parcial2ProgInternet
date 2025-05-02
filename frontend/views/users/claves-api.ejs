@@ -1,0 +1,65 @@
+<%- include("./segments/top") %>
+<%- include("./segments/nav") %>
+<section id="main-container">
+    <%- include("./segments/sidebar") %>
+    <main>
+        <h1>Claves de API</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor reiciendis odit accusantium incidunt aut explicabo consequuntur repudiandae rerum corrupti accusamus nemo, odio quas fugiat molestias quam eius beatae ratione placeat!</p>
+        <button id="new-key"><i class="fa-solid fa-plus"></i> Nueva clave de API</button>
+        <table id="apikeys">
+            <tr>
+                <th>Nombre</th>
+                <th>Clave</th>
+                <th>Llamadas este mes</th>
+                <th>Acciones</th>
+            </tr>
+            <% if(api_keys.length == 0){ %>
+                <tr>
+                    <th colspan="4">Ahora mismo no tienes claves de API</th>
+                </tr>    
+            <% } else { %>
+                <% api_keys.forEach((k, i) => { %>
+                    <tr>
+                        <td><%= k.name ?? "(Sin nombre)" %></td>
+                        <td>
+                            <span id="key-<%= i %>" style="filter: blur(4px);"><%= k.key %></span>
+                        </td>
+                        <td><%= k.monthly_uses %></td>
+                        <td>
+                            <button class="show" onclick="showKey(this, '<%= k.key %>', 'key-<%= i %>')"><i class="fa-solid fa-eye"></i></button>
+                            <button class="copy" onclick="copyKey(this, '<%= k.key %>')"><i class="fa-solid fa-copy"></i></button>
+                            <button class="edit" onclick="toggleForm(null, 'Editar', '<%= k.name %>', '<%= k.key %>')"><i class="fa-solid fa-pen"></i></button>
+                            <button class="delete" onclick="toggleDelForm('<%= k.name %>', '<%= k.key %>')"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+        </table>
+    </main>
+</section>
+<div id="new-key-form-bg" style="display: none;"></div>
+<form id="new-key-form" style="display: none;" action="/claves-api/nueva" method="POST">
+    <h1><span id="form-action">Nueva</span> clave de API</h1>
+    <label for="name">Nombre (opcional)</label><input id="name" name="name" type="text" placeholder="Nombre">
+    <label for="password">Escribe tu contraseña</label><input id="password" name="password" type="password" required placeholder="Contraseña">
+    <div class="btn-2">
+        <button id="cancel-btn">
+            Cancelar
+        </button><button id="create-btn">
+            Crear clave
+        </button>
+    </div>
+</form>
+<form id="del-key-form" style="display: none;" action="/claves-api/null/eliminar" method="POST">
+    <h1>Eliminar clave de API</h1>
+    <p>Estás a punto de eliminar la clave de API "<span id="del-key-name">nombre</span>"<br/><i class="fa-solid fa-triangle-exclamation"></i> Esta acción no se puede deshacer.</p>
+    <label for="password">Escribe tu contraseña</label><input id="password" name="password" type="password" required placeholder="Contraseña">
+    <div class="btn-2">
+        <button id="cancel-btn-2">
+            Cancelar
+        </button><button id="delete-btn">
+            Eliminar clave
+        </button>
+    </div>
+</form>
+<%- include("./segments/bottom") %>

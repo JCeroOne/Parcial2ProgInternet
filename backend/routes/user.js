@@ -2,6 +2,7 @@ import {userDeletionHandler, userDeactivationHandler, userPwdChangeHandler, user
 import express from "express";
 import { checkAuth, checkNoAuth } from "../util/checkauth.js";
 import {User} from "../models/User.js";
+import { APIKey } from "../models/APIKey.js";
 
 export default (() => {
     const router = express.Router();
@@ -44,6 +45,22 @@ export default (() => {
                 name: "Ajustes de cuenta"
             }, 
             user: req.user
+        })
+    });
+
+    router.get("/claves-api", checkAuth, async (req, res) => {
+
+        const api_keys = await APIKey.find({user_id: req.user._id});
+
+        console.log(api_keys);
+
+        res.render("users/claves-api", {
+            section: {
+                id: "apikeys",
+                name: "Claves de API"
+            }, 
+            user: req.user,
+            api_keys
         })
     });
 
