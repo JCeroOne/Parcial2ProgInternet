@@ -3,6 +3,12 @@
 <section id="main-container">
     <%- include("./segments/sidebar") %>
     <main>
+        <% if(error) { %>
+            <p id="operation-error"><%= error %></p>    
+        <% } %>
+        <% if(success) { %>
+            <p id="operation-success"><%= success %></p>    
+        <% } %>
         <h1>Ajustes de cuenta</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis maxime, voluptatibus ad natus quidem optio voluptatem consequatur rerum earum, delectus recusandae obcaecati vitae dignissimos iste quos dolor cupiditate quasi. Velit.</p>
         <section id="action-areas">

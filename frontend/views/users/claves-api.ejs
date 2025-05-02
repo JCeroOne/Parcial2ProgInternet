@@ -3,6 +3,12 @@
 <section id="main-container">
     <%- include("./segments/sidebar") %>
     <main>
+        <% if(error) { %>
+            <p id="operation-error"><%= error %></p>    
+        <% } %>
+        <% if(success) { %>
+            <p id="operation-success"><%= success %></p>    
+        <% } %>
         <h1>Claves de API</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor reiciendis odit accusantium incidunt aut explicabo consequuntur repudiandae rerum corrupti accusamus nemo, odio quas fugiat molestias quam eius beatae ratione placeat!</p>
         <button id="new-key"><i class="fa-solid fa-plus"></i> Nueva clave de API</button>

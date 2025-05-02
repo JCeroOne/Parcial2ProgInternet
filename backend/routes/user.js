@@ -44,7 +44,16 @@ export default (() => {
                 id: "settings",
                 name: "Ajustes de cuenta"
             }, 
-            user: req.user
+            user: req.user,
+            error: (p => {
+                if(p.denegado) return `La contraseña ingresada no es correcta`;
+                if(p.error) {
+                    if(p.error == 404) return `No se encontró el recurso solicitado`;
+                    return `Ocurrió un error interno. Inténtalo de nuevo más tarde`;
+                }
+                return null;
+            })(req.query),
+            success: (req.query.exito == 1 ? "La operación se llevó a cabo exitosamente" : null)
         })
     });
 
@@ -52,15 +61,22 @@ export default (() => {
 
         const api_keys = await APIKey.find({user_id: req.user._id});
 
-        console.log(api_keys);
-
         res.render("users/claves-api", {
             section: {
                 id: "apikeys",
                 name: "Claves de API"
             }, 
             user: req.user,
-            api_keys
+            api_keys,
+            error: (p => {
+                if(p.denegado) return `La contraseña ingresada no es correcta`;
+                if(p.error) {
+                    if(p.error == 404) return `No se encontró el recurso solicitado`;
+                    return `Ocurrió un error interno. Inténtalo de nuevo más tarde`;
+                }
+                return null;
+            })(req.query),
+            success: (req.query.exito == 1 ? "La operación se llevó a cabo exitosamente" : null)
         })
     });
 
