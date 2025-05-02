@@ -55,18 +55,18 @@
                 </li>
                 <% if(!user){ %>
                     <li class="nav-item">
-                        <a class="nav-link" href="/acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
+                        <a class="nav-link" href="/usuarios/acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
                     </li>    
                 <% } else { %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i> Mi cuenta</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/panel"><i class="fa-solid fa-right-to-bracket"></i> Panel de usuario</a>
-                            <a class="dropdown-item" href="/settings"><i class="fa-solid fa-gear"></i> Configuración</a>
-                            <a class="dropdown-item" href="/settings"><i class="fa-solid fa-code"></i> Claves de API</a>
-                            <a class="dropdown-item" href="/settings"><i class="fa-solid fa-credit-card"></i> Plan</a>
+                            <a class="dropdown-item" href="/usuarios/panel"><i class="fa-solid fa-right-to-bracket"></i> Panel de usuario</a>
+                            <a class="dropdown-item" href="/usuarios/ajustes"><i class="fa-solid fa-gear"></i> Configuración</a>
+                            <a class="dropdown-item" href="/usuarios/claves-api"><i class="fa-solid fa-code"></i> Claves de API</a>
+                            <a class="dropdown-item" href="/usuarios/planes"><i class="fa-solid fa-credit-card"></i> Plan</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/cerrar-sesion"><i class="fa-solid fa-user-minus"></i> Cerrar sesión</a>
+                            <a class="dropdown-item" href="/sesiones/cerrar"><i class="fa-solid fa-user-minus"></i> Cerrar sesión</a>
                         </div>
                     </li>
                 <% } %>

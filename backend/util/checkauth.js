@@ -1,9 +1,9 @@
 const checkAuth = (req, res, next) => {
-    if(!req.user) return res.redirect("/acceso");
+    if(!req.user) return res.redirect("/usuarios/acceso");
     next();
 }
 const checkNoAuth = (req, res, next) => {
-    if(req.user) return res.redirect("/panel");
+    if(req.user) return res.redirect("/usuarios/panel");
     next();
 }
 export {checkAuth, checkNoAuth}
