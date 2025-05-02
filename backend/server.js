@@ -25,7 +25,7 @@ import {Plan} from "./models/Plan.js";
 const PATH = import.meta.dirname;
 logger.log("Application", "Starting backend...");
 app_config(express, app, PATH, session);
-passport_config(passport, User, session);
+passport_config(app, passport, User);
 await db_connect(mongoose);
 
 Routes(express, app, passport, {User, APIKey, Product, Plan});

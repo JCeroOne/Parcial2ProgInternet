@@ -1,0 +1,118 @@
+body {
+    --background-color: #222;
+    --color: white;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+nav.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.navbar-brand {
+    font-weight: 800;
+}
+header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/0.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0.75));
+}
+header .content {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} header .content h1 {
+    color: var(--color);;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+    text-transform: none;
+}
+#login-error {
+    display: block;
+    font-size: 22px;
+    color: #fdd;
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 10px;
+}
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+form input {
+    display: block;
+    color: black;
+    font-size: 24px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px solid #888;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+form button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-top: 40px;
+    color: #fff;
+    background-color: rgb(0, 175, 79);
+    border: 3px solid rgb(0, 175, 79);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+form button:hover {
+    background-color: transparent;
+    color: rgb(0, 175, 79);
+    border: 3px solid rgb(0, 175, 79);
+}
+p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+a {
+    text-decoration: underline;
+    color: #0af;
+}
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+footer p {
+    width: 80%;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 800px){
+    header .content {
+        width: 80%;
+    }
+    form > section > .msg, form > section > .user-data {
+        flex: 0 0 100%;
+    }
+}

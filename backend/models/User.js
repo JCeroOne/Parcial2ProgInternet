@@ -3,6 +3,7 @@ import passportLocalMongoose from "passport-local-mongoose";
 
 const schema = new mongoose.Schema({
     
+    name: {type: String, require: true},
     email: {type: String, require: true},
     role: {type: String, require: true}, // "user" or "admin"
     register_date: {type: Date, default: Date.now},
