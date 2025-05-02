@@ -31,7 +31,7 @@ export default (express, app, passport, Models) => {
         user: req.user
     }));
 
-    app.use("/usuarios", userRouter)
+    app.use("/usuarios", userRouter);
 
     app.use("/sesiones", sessionRouter);
 

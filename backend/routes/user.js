@@ -37,6 +37,16 @@ export default (() => {
         })
     });
 
+    router.get("/ajustes", checkAuth, (req, res) => {
+        res.render("users/cuenta", {
+            section: {
+                id: "settings",
+                name: "Ajustes de cuenta"
+            }, 
+            user: req.user
+        })
+    });
+
     router.post("/registro", checkNoAuth, userRegistrationHandler);
 
     return router;
