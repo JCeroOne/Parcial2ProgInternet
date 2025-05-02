@@ -5,6 +5,8 @@ import {APIKey} from "../../models/APIKey.js";
 import {User} from "../../models/User.js";
 import { Storm } from "../../models/Storm.js";
 
+const {Types: {ObjectId}} = mongoose;
+
 function Distance(p1, p2){
     return Math.sqrt(Math.pow(p2[0] - p1[0], 2) + Math.pow(p2[1] - p1[1], 2))
 }
@@ -48,6 +50,8 @@ export default (() => {
         if(!key) return res.status(401).json({message: "API key required"});
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
+        if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
+
         const s = await Storm.findById(req.params.id);
         if(!s) return res.status(404).json({message: "Not Found"});
         return res.status(200).json(s);
@@ -59,8 +63,6 @@ export default (() => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
-        
-        console.log(req.body);
 
         const params = req.body.storm;
         const storm = await Storm.create(params);
@@ -72,6 +74,8 @@ export default (() => {
         if(!key) return res.status(401).json({message: "API key required"});
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
         
+        if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
+
         const s = await Storm.findById(req.params.id);
         if(!s) return res.status(404).json({message: "Not Found"});
 
@@ -84,6 +88,8 @@ export default (() => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
+
+        if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
 
         const s = await Storm.findById(req.params.id);
         if(!s) return res.status(404).json({message: "Not Found"});
