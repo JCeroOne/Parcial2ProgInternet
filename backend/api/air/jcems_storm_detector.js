@@ -17,6 +17,10 @@ export default (() => {
     router.get("/", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
         res.status(200).json({api_status: "OK"});
     });
@@ -24,6 +28,11 @@ export default (() => {
     router.get("/cercanas", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
         if(!req.query.lat || !req.query.lon) return res.status(400).json({message: "Latitude and longitude required!"})
@@ -39,6 +48,10 @@ export default (() => {
     router.get("/tormentas", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
         const s = await Storm.find({});
@@ -48,6 +61,10 @@ export default (() => {
     router.get("/tormentas/:id", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
         if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
@@ -62,6 +79,10 @@ export default (() => {
     router.post("/tormentas/nueva", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
         const params = req.body.storm;
@@ -72,6 +93,10 @@ export default (() => {
     router.post("/tormentas/:id", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
         
         if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
@@ -87,6 +112,10 @@ export default (() => {
     router.post("/tormentas/:id/eliminar", async (req, res) => {
         const key = await APIKey.findOne({key: req.query.api_key});
         if(!key) return res.status(401).json({message: "API key required"});
+
+        const user = await User.findById(key.user_id);
+        if(!user.account_active) return res.status(401).json({message: "API key required"});
+        
         await APIKey.updateOne({key: req.query.api_key}, {$inc: {monthly_uses: 1}});
 
         if(!ObjectId.isValid(req.params.id)) return res.status(404).json({message: "Not Found"});
