@@ -6,7 +6,8 @@ const schema = new mongoose.Schema({
     name: String,
     user_id: {type: String, require: true},
     monthly_uses: {type: Number, default: 0},
-    last_use: {type: Date, default: null}
+    minute_uses: {type: Number, default: 0},
+    last_use: {type: Number, default: 0}
 
 });
 

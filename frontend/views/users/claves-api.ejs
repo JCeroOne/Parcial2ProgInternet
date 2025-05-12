@@ -30,7 +30,7 @@
                         <td>
                             <span id="key-<%= i %>" style="filter: blur(4px);"><%= k.key %></span>
                         </td>
-                        <td><%= k.monthly_uses %></td>
+                        <td><%= k.monthly_uses.toLocaleString("es-MX") %></td>
                         <td>
                             <button class="show" onclick="showKey(this, '<%= k.key %>', 'key-<%= i %>')"><i class="fa-solid fa-eye"></i></button>
                             <button class="copy" onclick="copyKey(this, '<%= k.key %>')"><i class="fa-solid fa-copy"></i></button>

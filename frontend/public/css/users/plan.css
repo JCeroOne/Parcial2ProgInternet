@@ -1,0 +1,71 @@
+main {
+    position: relative;
+}
+main h1 {
+    font-size: 50px;
+    text-transform: none;
+    color: white;
+    text-align: center;
+} 
+main p {
+    font-size: 24px;
+    text-align: center;
+}
+#plan-badge {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 4px 12px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+#plans {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#plans td, #plans th {
+    width: calc(100% / 3);
+    padding: 5px;
+    box-sizing: border-box;
+    text-transform: none;
+    cursor: pointer;
+}
+
+#plans th.name {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+#plans th.price {
+    font-size: 50px;
+} #plans th.price span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+    font-weight: normal;
+}
+
+#plans th:nth-child(1) {
+    background-color: rgba(150, 150, 150, 0.65);
+} #plans td:nth-child(1) {
+    background-color: rgba(150, 150, 150, 0.25);
+}
+
+#plans th:nth-child(2) {
+    background-color: rgba(0, 200, 255, 0.65);
+} #plans td:nth-child(2) {
+    background-color: rgba(0, 200, 255, 0.25);
+}
+
+#plans th:nth-child(3) {
+    background-color: rgba(0, 255, 115, 0.65);
+} #plans td:nth-child(3) {
+    background-color: rgba(0, 255, 115, 0.25);
+}

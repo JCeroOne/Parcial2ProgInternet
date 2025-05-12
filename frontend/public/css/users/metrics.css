@@ -1,0 +1,66 @@
+main {
+    position: relative;
+}
+main h1 {
+    font-size: 50px;
+    text-transform: none;
+    color: white;
+    text-align: center;
+} 
+main p {
+    font-size: 24px;
+    text-align: center;
+}
+#metrics-display {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+#metrics-display > div {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #222;
+} #metrics-display > div > h2 {
+    text-transform: none;
+    color: white;
+    text-decoration: underline;
+} #metrics-display > div > h3 {
+    text-transform: none;
+    color: white;
+    font-weight: normal;
+}
+.progress-bar {
+    display: block;
+    width: 80%;
+    height: 30px;
+    margin: 10px auto;
+    border: 2px solid #888;
+    border-radius: 15px;
+    background-color: #333;
+} .progress-bar span {
+    display: block;
+    float: left;
+    background-color: #00ff44;
+    height: 30px;
+} .progress-bar span.warn {
+    background-color: #ff9100;
+} .progress-bar span.full {
+    background-color: #ff0000;
+}
+#plan-badge {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 4px 12px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+#plan-badge.basic {
+    background-color: rgb(125, 125, 125);
+}#plan-badge.plus {
+    background-color: rgb(0, 157, 255);
+} #plan-badge.pro {
+    background-color: rgb(0, 206, 62);
+}

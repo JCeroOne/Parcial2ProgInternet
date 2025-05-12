@@ -13,7 +13,7 @@
             <th></th>
             <th class="name">Básico</th>
             <th class="name">Plus</th>
-            <th class="name">Profesional</th>
+            <th class="name">Pro</th>
         </tr><tr>
             <th></th>
             <th class="price">Gratis<span>por siempre</span></th>
@@ -23,25 +23,25 @@
             <th colspan="4">Productos</th>
         </tr><tr>
             <th>JCEMS Skew-T log-P</th>
-            <td>5<br/><span>sondeos / día</span></td>
-            <td>50<br/><span>sondeos / día</span></td>
-            <td>10,000<br/><span>sondeos / día</span></td>
+            <td><%= plans.basic.usage_limits.air.skewt_logp.toLocaleString("es-mx") %><br/><span>sondeos / día</span></td>
+            <td><%= plans.plus.usage_limits.air.skewt_logp.toLocaleString("es-mx") %><br/><span>sondeos / día</span></td>
+            <td><%= plans.pro.usage_limits.air.skewt_logp.toLocaleString("es-mx") %><br/><span>sondeos / día</span></td>
         </tr><tr>
             <th>JCEMS StormDetector</th>
-            <td>3<br/><span>ubicaciones</span></td>
-            <td>30<br/><span>ubicaciones</span></td>
-            <td>300<br/><span>ubicaciones</span></td>
+            <td><%= plans.basic.usage_limits.air.storm_detector.toLocaleString("es-mx") %><br/><span>ubicaciones</span></td>
+            <td><%= plans.plus.usage_limits.air.storm_detector.toLocaleString("es-mx") %><br/><span>ubicaciones</span></td>
+            <td><%= plans.pro.usage_limits.air.storm_detector.toLocaleString("es-mx") %><br/><span>ubicaciones</span></td>
         </tr><tr>
             <th colspan="4">APIs</th>
         </tr><tr>
             <th>General</th>
-            <td>120<br/><span>llamadas / minuto</span></td>
-            <td>12,000<br/><span>llamadas / minuto</span></td>
-            <td>120,000<br/><span>llamadas / minuto</span></td>
+            <td><%= plans.basic.rate_limit.toLocaleString("es-mx") %><br/><span>llamadas / minuto</span></td>
+            <td><%= plans.plus.rate_limit.toLocaleString("es-mx") %><br/><span>llamadas / minuto</span></td>
+            <td><%= plans.pro.rate_limit.toLocaleString("es-mx") %><br/><span>llamadas / minuto</span></td>
         </tr><tr>
             <th>JCEMS Storm API</th>
-            <td>500<br/><span>llamadas / mes</span></td>
-            <td>100,000<br/><span>llamadas / mes</span></td>
+            <td><%= plans.basic.usage_limits.api.storm_api.toLocaleString("es-mx") %><br/><span>llamadas / mes</span></td>
+            <td><%= plans.plus.usage_limits.api.storm_api.toLocaleString("es-mx") %><br/><span>llamadas / mes</span></td>
             <td>Ilimitadas<br/><span>llamadas / mes</span></td>
         </tr>
     </table>

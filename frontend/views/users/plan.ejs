@@ -1,0 +1,21 @@
+<%- include("./segments/top") %>
+<%- include("./segments/nav") %>
+<section id="main-container">
+    <%- include("./segments/sidebar") %>
+    <main>
+        <h1>Plan</h1>
+        <p>Haz click sobre un plan para cambiarte.<br/><em>Evidentemente, en el mundo real no sería tan sencillo.</em></p>
+        <table id="plans">
+            <tr>
+                <th class="name basic">Básico</th>
+                <th class="name plus">Plus</th>
+                <th class="name pro">Pro</th>
+            </tr><tr>
+                <th class="price basic">Gratis<span>por siempre</span></th>
+                <th class="price plus">$4.99<span>por mes</span></th>
+                <th class="price pro">$14.99<span>por mes</span></th>
+            </tr>
+        </table>
+    </main>
+</section>
+<%- include("./segments/bottom") %>

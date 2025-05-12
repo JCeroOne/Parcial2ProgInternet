@@ -1,0 +1,32 @@
+<%- include("./segments/top") %>
+<%- include("./segments/nav") %>
+<section id="main-container">
+    <%- include("./segments/sidebar") %>
+    <main>
+        <h1>Métricas</h1>
+        <p>Los límites de cada servicio y API dependerán de tu plan. Tu plan actual es <span id="plan-badge" class="<%= user.plan %>"><%= user.plan %></span></p>
+        <div id="metrics-display">
+            <div>
+                <h2>Storm Detector API</h2>
+                <h3>Llamadas mensuales</h3>
+                <div class="progress-bar">
+                    <span
+                        <% let pct = Math.round(10000 * user.product_usage.api.metrics.storm_api.monthly_calls / plans[user.plan].usage_limits.api.storm_api) / 100; %>
+                        <% if(user.plan != "pro"){ %>
+                            style="width: <%= pct %>%;"
+                            <% if(pct >= 70 && pct < 100){ %>
+                                class="warn"
+                            <% } else if(pct >= 100) { %>
+                                class="full"
+                            <% } %>
+                        <% } else { %>
+                            style="width: 100%;"
+                        <% } %>
+                    ></span>
+                </div>
+                <p><%= user.product_usage.api.metrics.storm_api.monthly_calls.toLocaleString("es-mx") %><% if(plans[user.plan].usage_limits.api.storm_api != -1){ %> / <%= plans[user.plan].usage_limits.api.storm_api.toLocaleString("es-mx") %> (<%= pct %>%)<% } %></p>
+            </div>
+        </div>
+    </main>
+</section>
+<%- include("./segments/bottom") %>

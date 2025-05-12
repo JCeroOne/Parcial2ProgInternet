@@ -52,6 +52,19 @@ nav .dropdown-section {
     text-decoration: underline;
     text-align: center;
 }
+.plan-badge {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.plan-badge.plus {
+    background-color: rgb(0, 157, 255);
+} .plan-badge.pro {
+    background-color: rgb(0, 206, 62);
+}
 main section > .section-header {
     color: white;
     text-align: center;

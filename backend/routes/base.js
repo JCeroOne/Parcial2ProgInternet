@@ -8,6 +8,8 @@ import userRouter from "./user.js";
 import apiKeyRouter from "./apikey.js";
 import apiRouter from "../api/api_routes.js";
 
+import { Plan } from "../models/Plan.js";
+
 const PORT = process.env.PORT || 80;
 export default (express, app, passport, Models) => {
     app.get("/", (req, res) => res.render("index", {
@@ -18,13 +20,21 @@ export default (express, app, passport, Models) => {
         user: req.user
     }));
 
-    app.get("/planes", (req, res) => res.render("planes", {
-        section: {
-            id: "plans",
-            name: "Planes"
-        },
-        user: req.user
-    }));
+    app.get("/planes", async (req, res) => {
+        const plans = await Plan.find({});
+        res.render("planes", {
+            section: {
+                id: "plans",
+                name: "Planes"
+            },
+            user: req.user,
+            plans: {
+                basic: plans.find(p => p.name == "basic"),
+                plus: plans.find(p => p.name == "plus"),
+                pro: plans.find(p => p.name == "pro")
+            }
+        });
+    });
 
     app.get("/contacto", (req, res) => res.render("contacto", {
         section: {

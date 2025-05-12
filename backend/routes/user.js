@@ -3,6 +3,7 @@ import express from "express";
 import { checkAuth, checkNoAuth } from "../util/checkauth.js";
 import {User} from "../models/User.js";
 import { APIKey } from "../models/APIKey.js";
+import { Plan } from "../models/Plan.js";
 
 export default (() => {
     const router = express.Router();
@@ -77,8 +78,48 @@ export default (() => {
                 return null;
             })(req.query),
             success: (req.query.exito == 1 ? "La operación se llevó a cabo exitosamente" : null)
-        })
+        });
     });
+
+    router.get("/metricas", checkAuth, async(req, res) => {
+
+        const plans = await Plan.find({});
+        res.render("users/metricas", {
+            section: {
+                id: "metrics",
+                name: "Métricas"
+            }, user: req.user,
+            plans: {
+                "basic": plans.find(p => p.name == "basic"),
+                "plus": plans.find(p => p.name == "plus"),
+                "pro": plans.find(p => p.name == "pro")
+            }
+        });
+
+    });
+
+    router.get("/plan", checkAuth, async(req, res) => {
+
+        const plans = await Plan.find({});
+        res.render("users/plan", {
+            section: {
+                id: "plan",
+                name: "Plan"
+            }, user: req.user,
+            plans: {
+                "basic": plans.find(p => p.name == "basic"),
+                "plus": plans.find(p => p.name == "plus"),
+                "pro": plans.find(p => p.name == "pro")
+            }
+        });
+    
+    });
+
+    router.get("/cambiar-plan", checkAuth, async (req, res) => {
+        if(["basic", "pro", "plus"].indexOf(req.query.plan) == -1) return res.redirect("/usuarios/plan");
+        const u = await User.findByIdAndUpdate(req.user._id, {$set: {plan: req.query.plan}});
+        res.redirect("/usuarios/panel");
+    })
 
     router.post("/registro", checkNoAuth, userRegistrationHandler);
 
